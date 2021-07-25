@@ -1,14 +1,12 @@
-notable_blog_dir=../; 
-cur_dir=$(pwd);
-echo $notable_blog_dir;
-echo $cur_dir;
+notable_blog_dir=../; # where is your notion blog? 
+cur_dir=$(pwd); # your github blog dir
 cd $notable_blog_dir;
-notablog generate .;
-cp -r public/. $cur_dir/.;
-cd $cur_dir;
+notablog generate .; # compile blog again
+cp -r public/. $cur_dir/.; # copy changes
+# commit and push changes
+cd $cur_dir; 
 git add .;
 commit_msg="${1:-'re-generated blog'}";
 echo $commit_msg;
 git commit -m "$commit_msg";
 git push -u origin main;
-#cd ../; notablog generate .; cd janakymurthy.github.io; cp -r ../public/ .; git add .; git commit -m "re generated blog"; git push -u origin main
