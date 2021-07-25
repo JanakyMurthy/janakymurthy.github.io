@@ -7,6 +7,7 @@ notablog generate .;
 cp -r public/. $cur_dir/.;
 cd $cur_dir;
 git add .;
-git commit -m "re-generated blog";
+commit_msg="${0:-'regenerated blog'}"
+git commit -m $commit_msg;
 git push -u origin main;
 #cd ../; notablog generate .; cd janakymurthy.github.io; cp -r ../public/ .; git add .; git commit -m "re generated blog"; git push -u origin main
